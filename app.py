@@ -11,26 +11,60 @@ HTML = r"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Least Squares Lab</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff
-  --accent:#6c63ff;--accent2:#ff6584;--accent3:#43e97b;
-  --text:#000000;--muted:#000000;
-}
-body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;min-height:100vh}
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.25;
- 
-  background-size:40px 40px;
-}
-.wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 20px 80px}
+  :root {
+    --bg: #ffffff;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #2a2a3a;
+    --accent: #6c63ff;
+    --accent2: #ff6584;
+    --accent3: #43e97b;
+    --text: #e8e8f0;
+    --muted: #000000;
 
-header{padding:44px 0 28px;border-bottom:1px solid var(--border);margin-bottom:36px}
-.tag{font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;font-family:monospace}
-header h1{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:800;line-height:1.1;
-  background:linear-gradient(135deg,#fff 30%,var(--accent));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-header p{color:var(--muted);margin-top:8px;font-size:14px;max-width:520px}
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; }
+
+  /* GRID BG */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* HEADER */
+  header {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .header-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 30%, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header p { color: var(--muted); margin-top: 10px; font-size: 15px; max-width: 560px; }
+
 
 .tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);
   border-radius:10px;padding:4px;width:fit-content;margin-bottom:28px}
